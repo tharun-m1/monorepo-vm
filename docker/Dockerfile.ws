@@ -2,7 +2,7 @@ FROM node:22-alpine
 
 WORKDIR /app
 
-RUN npm i -g pnpm
+
 
 COPY ./package.json ./package.json
 COPY ./pnpm-lock.yaml ./pnpm-lock.yaml
@@ -11,7 +11,7 @@ COPY ./turbo.json ./turbo.json
 COPY ./packages ./packages
 
 COPY ./apps/ws ./apps/ws
-
+RUN npm i -g pnpm
 RUN pnpm install
 
 RUN pnpm run generate:db

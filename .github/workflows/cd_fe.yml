@@ -2,6 +2,7 @@ name: Continuous Deployment Frontend
 on:
     push:
         branches: [ main ]
+
 jobs:
     build:
         runs-on: ubuntu-latest
@@ -21,8 +22,6 @@ jobs:
                 context: .
                 file: ./docker/Dockerfile.fe
                 build-args:
-                  - DATABASE_URL:${{ secrets.DATABASE_URL }}
+                  DATABASE_URL: ${{ secrets.DATABASE_URL }}
                 push: true
                 tags: tharunm1/todo-fe:${{ github.sha }}
-
-

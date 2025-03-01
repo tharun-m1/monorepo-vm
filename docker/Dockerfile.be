@@ -1,6 +1,6 @@
 FROM node:22-alpine
 WORKDIR /app
-RUN npm i -g pnpm
+
 
 
 COPY ./packages ./packages
@@ -12,6 +12,7 @@ COPY ./turbo.json ./turbo.json
 
 COPY ./apps/http-server ./apps/http-server
 
+RUN npm i -g pnpm
 RUN pnpm install
 
 RUN pnpm run generate:db
