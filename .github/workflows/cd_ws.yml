@@ -21,6 +21,6 @@ jobs:
                 context: .
                 file: ./docker/Dockerfile.ws
                 push: true
-                tags: tharunm1/todo-be:${{ github.sha }}
+                tags: tharunm1/todo-ws:${{ github.sha }}
 
 
