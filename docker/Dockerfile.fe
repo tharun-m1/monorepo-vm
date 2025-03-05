@@ -17,7 +17,11 @@ RUN npm i -g pnpm
 RUN pnpm install
 
 RUN pnpm run generate:db
-RUN export DATABASE_URL=${DATABASE_URL} && pnpm run build
+RUN echo DATABASE_URL=${DATABASE_URL} >> apps/web/.env
+
+RUN DATABASE_URL=${DATABASE_URL} pnpm run build
+
+RUN rm apps/web/.env
 
 EXPOSE 3000
 
